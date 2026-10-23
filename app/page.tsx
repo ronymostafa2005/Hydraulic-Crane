@@ -1,115 +1,173 @@
+
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ActionLinks, AnnounceBar } from "@/components/Ctas";
 import { BrandCarousel } from "@/components/BrandCarousel";
-import { ChatUserIcon, TruckIcon, WrenchIcon } from "@/components/icons";
-import { HeroSlider } from "@/components/HeroSlider";
-import { siteName } from "@/lib/site";
+import {
+  ClockIcon,
+  TruckIcon,
+  WhatsappIcon,
+  WrenchIcon,
+  ChatUserIcon,
+} from "@/components/icons";
+import { siteName, telHref, waHref } from "@/lib/site";
+import { HeroSection } from "@/components/HeroSection";
+import "./homepage-modern.css";
+
+export const metadata: Metadata = {
+  title: "الرئيسية",
+  description:
+    "ونش الصاروخ — خدمة سحب ونقل السيارات 24 ساعة في الشرقية والقليوبية وطريق الإسماعيلية الصحراوي. اتصل أو راسلنا فوراً.",
+};
 
 const features = [
   {
-    title: "اوناش الانقاذ",
-    text: "أوناش إنقاذ حديثة جاهزة للتحرك داخل اسيوط والمنيا وعلى طريق الكريمات، ونصل إلى موقعك بأسرع وقت.",
-    icon: <ChatUserIcon />,
+    title: "أوناش إنقاذ حديثة",
+    text: "أوناش مجهزة للتحرك داخل الشرقية والقليوبية وعلى طريق الإسماعيلية الصحراوي، مع عناية بسيارتك من لحظة التحميل.",
+    icon: <TruckIcon />,
   },
   {
-    title: "فريق عمل مجهز",
-    text: "سائقون وناشون مدربون على سحب السيارة من مختلف الأوضاع، سواء حادث سير أو عطل مفاجئ على الطريق.",
+    title: "فريق محترف",
+    text: "سائقون وفنيون مدربون للتعامل مع الأعطال والحوادث ومختلف ظروف الطريق بأمان وهدوء.",
     icon: <WrenchIcon />,
   },
   {
-    title: "خدمة 24 ساعة",
-    text: "فريق جاهز لتلقي اتصالك فوراً طوال أيام الأسبوع، في اسيوط والمنيا وعلى طريق الكريمات.",
-    icon: <TruckIcon />,
+    title: "متاحون 24 ساعة",
+    text: "نستقبل اتصالك طوال أيام الأسبوع، ونساعدك في ترتيب نقل سيارتك إلى المكان الذي تختاره.",
+    icon: <ClockIcon />,
   },
 ];
 
 export default function HomePage() {
   return (
     <>
-      <HeroSlider />
-      <AnnounceBar text={`${siteName} | أسرع خدمات إنقاذ السيارات`} />
+      <HeroSection />
 
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">اهم ما يميزنا</h2>
-          <div className="lead">
-            <p>
-              يتعرض الكثير من أصحاب السيارات إلى الأعطال المفاجئة أو الحوادث على الطرق السريعة، مما يسبب لهم التوقف في أماكن قد يصعب الحصول فيها على المساعدة بشكل سريع. لذلك نوفر في {siteName} خدمات إنقاذ ونقل السيارات على مدار 24 ساعة للوصول إلى موقعك بأسرع وقت ممكن.
-            </p>
-            <p>
-              نعتمد على أوناش ومعدات رفع ونقل آمن لحماية سيارتك أثناء عملية الإنقاذ، مع فريق يستطيع التعامل مع أعطال الطريق والحوادث. سواء كنت في اسيوط أو المنيا أو على طريق الكريمات، اتصل بنا وسنصل إليك.
-            </p>
+      <section className="section modern-intro" dir="rtl">
+          <div className="container">
+            <div className="modern-section-heading">
+              <span className="modern-kicker">معاك وقت الطوارئ</span>
+
+              <h2 className="section-title">
+                مساعدة موثوقة، وقت ما تحتاجها
+              </h2>
+
+              <p className="modern-section-subtitle">
+                عطل مفاجئ أو حادث على الطريق؟ {siteName} يوفر لك خدمة سحب
+                ونقل سيارات على مدار 24 ساعة في الشرقية والقليوبية وطريق
+                الإسماعيلية الصحراوي.
+              </p>
+            </div>
+
+            <div className="feature-grid modern-feature-grid">
+              {features.map((feature, index) => (
+                <article
+                  className="feature modern-feature"
+                  key={feature.title}
+                >
+                  <span className="modern-feature-number">
+                    0{index + 1}
+                  </span>
+
+                  <div className="modern-feature-icon" aria-hidden="true">
+                    {feature.icon}
+                  </div>
+
+                  <h3>{feature.title}</h3>
+                  <p>{feature.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
-          <div className="feature-grid">
-            {features.map((feature) => (
-              <article className="feature" key={feature.title}>
-                <div className="hexagon">
-                  <span className="hex-icon">{feature.icon}</span>
-                </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.text}</p>
-              </article>
-            ))}
+        </section>
+
+        <section className="split modern-split" id="services" dir="rtl">
+          <div className="split-copy modern-split-copy">
+            <span className="modern-kicker">خدمة من أول اتصال</span>
+
+            <p>
+              هل تبحث عن خدمة إنقاذ سيارات سريعة وموثوقة؟ يوفر لك {siteName}
+              حلولاً لسحب ونقل السيارات على مدار 24 ساعة، مع فريق جاهز للوصول
+              إليك داخل الشرقية والقليوبية وعلى طريق الإسماعيلية الصحراوي.
+            </p>
+
+            <p>
+              نعتمد على أوناش ومعدات رفع ونقل تساعد على حماية السيارة أثناء
+              السحب، سواء كانت متعطلة أو متضررة في حادث، ثم ننقلها إلى مركز
+              الصيانة الذي تحدده.
+            </p>
+
+            <p>
+              نوضح تفاصيل الخدمة والتكلفة قبل التحرك قدر الإمكان، حتى تعرف
+              الخطوات التالية من البداية ومن غير مفاجآت غير متوقعة.
+            </p>
+
+            <ActionLinks />
           </div>
-        </div>
-      </section>
 
-      <section className="split" id="services">
-        <div className="split-copy">
-          <h2 className="section-title">نقل سيارات الحوادث من وإلي مراكز الصيانة</h2>
-          <p>
-            هل تبحث عن خدمة إنقاذ سيارات سريعة وموثوقة في أي وقت؟ يوفر لك {siteName} حلولاً لنقل وسحب السيارات على مدار 24 ساعة، مع سرعة استجابة وفريق جاهز للوصول إليك داخل اسيوط والمنيا وعلى طريق الكريمات.
-          </p>
-          <p>
-            نعتمد على أوناش ومعدات رفع ونقل تحافظ على السيارة أثناء السحب، مع أسطول يتعامل مع الأعطال والحوادث على الطرق السريعة والداخلية، ثم نقلها إلى مركز الصيانة الذي تحدده.
-          </p>
-          <p>
-            نعمل بفريق مدرب هدفه الوصول في الوقت المناسب والالتزام بالموعد. لذلك يعتمد أصحاب السيارات على {siteName} عندما تتوقف السيارة في موقف طارئ.
-          </p>
-          <p>
-            الأسعار واضحة قبل التحرك، من غير رسوم مفاجئة بعد ما الونش يوصل. الخدمة متاحة طوال اليوم وعلى مدار الأسبوع.
-          </p>
-          <ActionLinks />
-        </div>
-        <div className="split-media">
-          <Image
-            src="/images/service-flatbed.jpeg"
-            alt="ونش سطحة لنقل سيارات الحوادث إلى مراكز الصيانة"
-            fill
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-        </div>
-      </section>
+          <div className="split-media modern-split-media">
+            <Image
+              src="/images/wonsh-new-6.jpg"
+              alt="ونش سطحة لنقل سيارات الحوادث إلى مراكز الصيانة"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
 
-      <section className="split">
-        <div className="split-media">
-          <Image
-            src="/images/service-highway.jpeg"
-            alt="إنقاذ السيارات على الطرق السريعة والصحراوية"
-            fill
-            sizes="(max-width: 900px) 100vw, 50vw"
-          />
-        </div>
-        <div className="split-copy">
-          <h2 className="section-title">خدمة إنقاذ سيارات في الطرق الصحراويه والعامة</h2>
-          <p>
-            تنتشر خدمة {siteName} على الطرق السريعة والمحاور الرئيسية، ومنها طريق الكريمات والطرق الصحراوية والعامة، لخدمة أصحاب السيارات على مدار 24 ساعة طوال أيام الأسبوع.
-          </p>
-          <p>
-            ننقل السيارة المعطلة أو المتضررة إلى المكان الذي يحدده العميل، سواء أقرب مركز صيانة أو عنوان داخل اسيوط والمنيا. السائقون معتادون على ظروف الطريق المختلفة وأنواع السيارات.
-          </p>
-          <p>
-            نقلل وقت الانتظار على الطريق بقدر الإمكان، لأن التوقف على طريق سريع أو صحراوي يحتاج استجابة سريعة وهدوئاً في التعامل مع الموقف.
-          </p>
-          <p>
-            لو سيارتك وقفت في اسيوط أو المنيا أو على طريق الكريمات، كلمنا أو راسلنا على واتساب ونرسل أقرب ونش إليك.
-          </p>
-          <ActionLinks />
-        </div>
-      </section>
+            <span className="modern-image-label">
+              <ClockIcon /> جاهزون لمساعدتك 24/7
+            </span>
+          </div>
+        </section>
 
-      <BrandCarousel />
-      <AnnounceBar text="محتاج ونش الآن في اسيوط أو المنيا أو على طريق الكريمات؟ اتصل أو راسلنا فوراً" />
-    </>
-  );
+        <section
+          className="split modern-split modern-split-reverse"
+          dir="rtl"
+        >
+          <div className="split-media modern-split-media">
+            <Image
+              src="/images/wonsh-new-3.jpg"
+              alt="إنقاذ السيارات على الطرق السريعة والصحراوية"
+              fill
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+
+            <span className="modern-image-label">
+              <TruckIcon /> نقل إلى وجهتك
+            </span>
+          </div>
+
+          <div className="split-copy modern-split-copy">
+            <span className="modern-kicker">على الطريق ومعاك</span>
+
+            <h2 className="section-title">
+              إنقاذ سيارات على الطرق الصحراوية والعامة
+            </h2>
+
+            <p>
+              نغطي الطرق السريعة والمحاور الرئيسية، ومنها طريق الإسماعيلية
+              الصحراوي، لخدمة أصحاب السيارات على مدار اليوم وطوال أيام الأسبوع.
+            </p>
+
+            <p>
+              ننقل السيارة المعطلة أو المتضررة إلى المكان الذي تختاره، سواء
+              أقرب مركز صيانة أو عنوان داخل الشرقية والقليوبية، مع مراعاة
+              ظروف الطريق ونوع السيارة.
+            </p>
+
+            <p>
+              لو سيارتك وقفت على الطريق، اتصل بنا أو راسلنا على واتساب وشاركنا
+              موقعك ونوع العطل لنساعدك في ترتيب وصول الونش المناسب.
+            </p>
+
+            <ActionLinks />
+          </div>
+        </section>
+
+        <BrandCarousel />
+
+        <AnnounceBar
+          text="محتاج ونش الآن في الشرقية أو القليوبية أو على طريق الإسماعيلية الصحراوي؟ اتصل أو راسلنا فوراً"
+        />
+      </>
+      );
 }

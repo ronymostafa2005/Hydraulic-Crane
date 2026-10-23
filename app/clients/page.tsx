@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { siteName } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "عملائنا",
-  description: `ماركات السيارات التي ينقلها ${siteName} داخل اسيوط والمنيا وعلى طريق الكريمات.`,
+  title: "عملاؤنا",
+  description: `ماركات السيارات التي ينقلها ${siteName} داخل الشرقيه والقليوبية وعلى طريق الاسماعيليه الصحراوي.`,
 };
 
 const logos = [
@@ -46,7 +46,7 @@ const logos = [
 
 export default function ClientsPage() {
   return (
-    <section className="clients-page" aria-label="عملائنا">
+    <section className="clients-page" aria-label="عملاؤنا">
       <ul className="clients-grid">
         {logos.map((logo) => (
           <li key={logo.src}>

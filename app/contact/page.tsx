@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { PhoneIcon, TruckIcon, WhatsappIcon } from "@/components/icons";
-import { phoneDisplay, siteName, telHref, waHref } from "@/lib/site";
+import { phoneDisplay, phoneDisplay2, siteName, telHref, telHref2, waHref, waHref2 } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "اتصل بنا",
-  description: `اتصل أو راسل ${siteName} على ${phoneDisplay}. خدمة 24 ساعة في اسيوط والمنيا وطريق الكريمات.`,
+  description: `اتصل أو راسل ${siteName} على ${phoneDisplay}. خدمة 24 ساعة في الشرقيه والقليوبية وطريق الاسماعيليه الصحراوي.`,
 };
 
 export default function ContactPage() {
@@ -16,7 +16,7 @@ export default function ContactPage() {
           <h1>كلمنا الأن نصلك فى الحال</h1>
           <div className="contact-feature-body">
             <p>
-              الموبايل : <a href={telHref}>{phoneDisplay}</a>
+              الموبايل : <a href={telHref}>{phoneDisplay}</a> / <a href={telHref2}>{phoneDisplay2}</a>
             </p>
             <PhoneIcon width={68} height={68} />
           </div>
@@ -27,6 +27,10 @@ export default function ContactPage() {
             <p>
               <a href={waHref} target="_blank" rel="noopener noreferrer">
                 {phoneDisplay}
+              </a>
+              {" / "}
+              <a href={waHref2} target="_blank" rel="noopener noreferrer">
+                {phoneDisplay2}
               </a>
             </p>
             <WhatsappIcon width={68} height={68} />

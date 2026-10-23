@@ -3,3 +3,9 @@ node_modules
 out
 .DS_Store
 *.log
+*.bak
+*.gitbak
+*.b64
+patch*.ps1
+psscript.ps1
+scratch/

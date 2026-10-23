@@ -1,16 +1,23 @@
-export const siteName = "ونش انقاذ السيارات اسيوط والمنيا وطريق الكريمات";
+export const siteName = "ونش الصاروخ";
 
-export const phoneDisplay = "01037035990";
-export const phoneTel = "+201037035990";
+export const phoneDisplay = "01000106813";
+export const phoneTel = "+201000106813";
 export const telHref = `tel:${phoneTel}`;
-export const waHref = `https://wa.me/201037035990?text=${encodeURIComponent(
+export const waHref = `https://wa.me/201000106813?text=${encodeURIComponent(
+  "مرحبا، محتاج ونش انقاذ. لو سمحت ابعتوا أقرب ونش."
+)}`;
+
+export const phoneDisplay2 = "01096402014";
+export const phoneTel2 = "+201096402014";
+export const telHref2 = `tel:${phoneTel2}`;
+export const waHref2 = `https://wa.me/201096402014?text=${encodeURIComponent(
   "مرحبا، محتاج ونش انقاذ. لو سمحت ابعتوا أقرب ونش."
 )}`;
 
 export const description =
-  "ونش انقاذ السيارات اسيوط والمنيا وطريق الكريمات. خدمة سحب ونقل السيارات 24 ساعة، استجابة سريعة على الطرق السريعة والصحراوية والعامة.";
+  "ونش الصاروخ. خدمة سحب ونقل السيارات 24 ساعة، استجابة سريعة على الطرق السريعة والصحراوية والعامة.";
 
-export const areas = ["اسيوط", "المنيا", "طريق الكريمات"] as const;
+export const areas = ["الشرقيه", "القليوبية", "طريق الاسماعيليه الصحراوي"] as const;
 
 export const days = [
   "السبت",
@@ -27,16 +34,16 @@ export const highlights = [
   "ارخص ونش انقاذ",
   "اقرب ونش انقاذ",
   "ونش انقاذ بالقرب منى",
-  "ونش انقاذ اسيوط",
-  "ونش انقاذ المنيا",
-  "ونش انقاذ طريق الكريمات",
+  "ونش انقاذ الشرقيه",
+  "ونش انقاذ القليوبية",
+  "ونش انقاذ طريق الاسماعيليه الصحراوي",
 ] as const;
 
 export const nav = [
   { href: "/", label: "الرئيسية" },
-  { href: "/about", label: "من نحن" },
   { href: "/services", label: "خدماتنا" },
-  { href: "/clients", label: "عملائنا" },
+  { href: "/about", label: "من نحن" },
+  { href: "/clients", label: "عملاؤنا" },
   { href: "/contact", label: "اتصل بنا" },
 ] as const;
 
@@ -80,18 +87,18 @@ export const brands = [
 
 export const slides = [
   {
-    src: "/images/hero-1.jpeg",
-    alt: "ونش إنقاذ سيارات على طريق سريع وقت الغروب",
-    title: "ونش انقاذ السيارات اسيوط والمنيا وطريق الكريمات",
+    src: "/images/wonsh-hero.jpg",
+    alt: "ونش الصاروخ إنقاذ سيارات",
+    title: "ونش الصاروخ",
   },
   {
-    src: "/images/hero-2.jpg",
+    src: "/images/wonsh-new-3.jpg",
     alt: "خدمة سحب ونقل السيارات",
-    title: "اسرع ونش انقاذ على طريق الكريمات",
+    title: "اسرع ونش انقاذ",
   },
   {
-    src: "/images/hero-3.jpeg",
+    src: "/images/wonsh-new-6.jpg",
     alt: "ونش سطحة لنقل السيارات",
-    title: "خدمة انقاذ 24 ساعة في اسيوط والمنيا",
+    title: "خدمة انقاذ 24 ساعة",
   },
 ] as const;

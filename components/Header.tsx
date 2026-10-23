@@ -12,7 +12,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "@/components/icons";
-import { nav, phoneDisplay, siteName, telHref, waHref } from "@/lib/site";
+import { nav, phoneDisplay, phoneDisplay2, siteName, telHref, telHref2, waHref } from "@/lib/site";
 
 export function Header() {
   const pathname = usePathname();
@@ -60,7 +60,7 @@ export function Header() {
       router.push("/about");
       return;
     }
-    if (/عملاء|عملائنا|عميل/.test(value)) {
+    if (/عملاء|عملائنا|عملاؤنا|عميل/.test(value)) {
       router.push("/clients");
       return;
     }
@@ -112,6 +112,12 @@ export function Header() {
             </a>
           </li>
           <li>
+            <a href={telHref2}>
+              <PhoneIcon />
+              <span dir="ltr">{phoneDisplay2}</span>
+            </a>
+          </li>
+          <li>
             <a href={waHref} target="_blank" rel="noopener noreferrer">
               <WhatsappIcon />
               <span>واتساب</span>
@@ -129,23 +135,7 @@ export function Header() {
         <Link href="/" className="logo" title={siteName}>
           <img src="/images/logo.png" alt={siteName} />
         </Link>
-        <a className="header-call" href={telHref}>
-          اتصال
-        </a>
-        <a className="header-call header-wa" href={waHref} target="_blank" rel="noopener noreferrer">
-          واتساب
-        </a>
-        <button
-          type="button"
-          className={open ? "burger open" : "burger"}
-          aria-expanded={open}
-          aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+
         <nav className={open ? "main-nav open" : "main-nav"} aria-label="القائمة الرئيسية">
           {nav.map((item) => {
             const active =
@@ -174,6 +164,23 @@ export function Header() {
             );
           })}
         </nav>
+
+        <div className="header-mobile-actions">
+          <a className="header-call-icon" href={telHref} aria-label="اتصل بنا الآن">
+            <PhoneIcon />
+          </a>
+          <button
+            type="button"
+            className={open ? "burger open" : "burger"}
+            aria-expanded={open}
+            aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </header>
   );

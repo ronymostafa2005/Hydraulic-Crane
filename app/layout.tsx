@@ -4,12 +4,12 @@ import { Cairo } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { FloatingCta } from "@/components/FloatingCta";
 import { Header } from "@/components/Header";
-import { description, phoneTel, siteName } from "@/lib/site";
+import { description, phoneTel, phoneTel2, siteName } from "@/lib/site";
 import "./globals.css";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#047c7b",
+  themeColor: "#1d4ed8",
 };
 
 const jsonLd = {
@@ -41,8 +41,8 @@ const jsonLd = {
   "@type": "AutomotiveBusiness",
   name: siteName,
   description,
-  telephone: phoneTel,
-  areaServed: ["اسيوط", "المنيا", "طريق الكريمات"],
+  telephone: [phoneTel, phoneTel2],
+  areaServed: ["الشرقيه", "القليوبية", "طريق الاسماعيليه الصحراوي"],
   openingHours: "Mo-Su 00:00-23:59",
   url: "/",
 };

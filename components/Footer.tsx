@@ -10,7 +10,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "@/components/icons";
-import { days, highlights, phoneDisplay, siteName, telHref, waHref } from "@/lib/site";
+import { days, highlights, phoneDisplay, phoneDisplay2, siteName, telHref, telHref2, waHref, waHref2 } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -19,7 +19,7 @@ export function Footer() {
         <div>
           <PhoneIcon />
           <p>
-            الموبايل : <a href={telHref} dir="ltr">{phoneDisplay}</a>
+            الموبايل : <a href={telHref} dir="ltr">{phoneDisplay}</a> | <a href={telHref2} dir="ltr">{phoneDisplay2}</a>
           </p>
         </div>
         <div>
@@ -45,14 +45,24 @@ export function Footer() {
               <a href={telHref} dir="ltr">{phoneDisplay}</a>
             </li>
             <li>
+              <span>الموبايل 2:</span>
+              <a href={telHref2} dir="ltr">{phoneDisplay2}</a>
+            </li>
+            <li>
               <span>واتساب:</span>
               <a href={waHref} target="_blank" rel="noopener noreferrer" dir="ltr">
                 {phoneDisplay}
               </a>
             </li>
             <li>
+              <span>واتساب 2:</span>
+              <a href={waHref2} target="_blank" rel="noopener noreferrer" dir="ltr">
+                {phoneDisplay2}
+              </a>
+            </li>
+            <li>
               <span>التغطية:</span>
-              <span>اسيوط، المنيا، طريق الكريمات</span>
+              <span>الشرقيه، القليوبية، طريق الاسماعيليه الصحراوي</span>
             </li>
           </ul>
           <div className="footer-social" aria-hidden="true">
@@ -91,7 +101,7 @@ export function Footer() {
         </div>
 
         <div className="footer-photo">
-          <img src="/images/footer-truck.png" alt="ونش نقل سيارة" />
+          <img src="/images/wonsh-new-3.jpg" alt="ونش نقل سيارة" />
         </div>
       </div>
 
