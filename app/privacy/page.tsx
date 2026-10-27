@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { AnnounceBar } from "@/components/Ctas";
 import { phoneDisplay, siteName, telHref } from "@/lib/site";
 
-export const metadata: Metadata = {
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
   title: "سياسة الخصوصية",
   description: `سياسة الخصوصية الخاصة بـ ${siteName}. كيف نتعامل مع بيانات التواصل عند طلب ونش الإنقاذ.`,
-};
+  pathname: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
@@ -31,7 +34,7 @@ export default function PrivacyPage() {
         </p>
         <h2>ملفات الارتباط</h2>
         <p>
-          الموقع حالياً لا يستخدم أدوات تتبع إعلاني ولا ملفات ارتباط للتسويق. لو أضفنا أداة قياس لاحقاً، هنحدّث السياسة دي ونوضح الغرض منها.
+          الموقع لا يستخدم أدوات تتبع إعلاني. قياس النقر على الاتصال وواتساب يتم محليًا عبر dataLayer بدون إرسال رقم هاتف المستخدم. إذا أُضيف معرّف Google Analytics لاحقًا عبر إعدادات الاستضافة، القياس يكون مجهّل IP ولا يُستخدم للإعلانات.
         </p>
         <h2>حقوقك</h2>
         <p>

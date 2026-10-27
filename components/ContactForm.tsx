@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent } from "react";
+import { trackEvent } from "@/components/ConversionLink";
 import { phoneTel } from "@/lib/site";
 
 export function ContactForm() {
@@ -14,6 +15,7 @@ export function ContactForm() {
     const text = [`الاسم: ${name}`, phone && `الموبايل: ${phone}`, email && `البريد: ${email}`, message]
       .filter(Boolean)
       .join("\n");
+    trackEvent("lead_submit", { form: "contact" });
     window.open(`https://wa.me/${phoneTel.replace("+", "")}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   }
 

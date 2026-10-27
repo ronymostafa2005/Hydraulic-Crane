@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import {
-  ClockIcon,
   FacebookIcon,
   PhoneIcon,
   PinterestIcon,
@@ -12,6 +11,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "@/components/icons";
+import { ConversionLink } from "@/components/ConversionLink";
 import { nav, phoneDisplay, phoneDisplay2, siteName, telHref, telHref2, waHref } from "@/lib/site";
 
 export function Header() {
@@ -54,6 +54,14 @@ export function Header() {
     }
     if (/اتصل|تواصل|رقم|فون/.test(value)) {
       router.push("/contact");
+      return;
+    }
+    if (/منطقه|منطقة|شرقيه|شرقية|قليوب|زقازيق|عبور|عاشر|اسماعيليه|إسماعيلية/.test(value)) {
+      router.push("/areas");
+      return;
+    }
+    if (/دليل|مقال|سطحة|تكلفة|سلامه|سلامة/.test(value)) {
+      router.push("/guides");
       return;
     }
     if (/من نحن|عن الشركه|عن الشركة/.test(value)) {
@@ -106,26 +114,22 @@ export function Header() {
         </div>
         <ul className="topbar-contact">
           <li>
-            <a href={telHref}>
+            <ConversionLink href={telHref} event="phone_click">
               <PhoneIcon />
               <span dir="ltr">{phoneDisplay}</span>
-            </a>
+            </ConversionLink>
           </li>
           <li>
-            <a href={telHref2}>
+            <ConversionLink href={telHref2} event="phone_click">
               <PhoneIcon />
               <span dir="ltr">{phoneDisplay2}</span>
-            </a>
+            </ConversionLink>
           </li>
           <li>
-            <a href={waHref} target="_blank" rel="noopener noreferrer">
+            <ConversionLink href={waHref} target="_blank" rel="noopener noreferrer" event="whatsapp_click">
               <WhatsappIcon />
               <span>واتساب</span>
-            </a>
-          </li>
-          <li>
-            <ClockIcon />
-            <span>خدمة 24 ساعة</span>
+            </ConversionLink>
           </li>
         </ul>
         </div>
@@ -166,9 +170,9 @@ export function Header() {
         </nav>
 
         <div className="header-mobile-actions">
-          <a className="header-call-icon" href={telHref} aria-label="اتصل بنا الآن">
+          <ConversionLink className="header-call-icon" href={telHref} aria-label="اتصل بنا الآن" event="phone_click">
             <PhoneIcon />
-          </a>
+          </ConversionLink>
           <button
             type="button"
             className={open ? "burger open" : "burger"}

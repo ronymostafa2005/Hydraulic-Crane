@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { siteName } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "عملاؤنا",
-  description: `ماركات السيارات التي ينقلها ${siteName} داخل الشرقيه والقليوبية وعلى طريق الاسماعيليه الصحراوي.`,
-};
+  description: `ماركات السيارات التي ينقلها ${siteName} داخل الشرقية والقليوبية وعلى طريق الإسماعيلية الصحراوي.`,
+  pathname: "/clients",
+});
 
 const logos = [
   { src: "/brands/hyundai.jpg", alt: "هيونداي" },
@@ -47,6 +49,11 @@ const logos = [
 export default function ClientsPage() {
   return (
     <section className="clients-page" aria-label="عملاؤنا">
+      <header className="page-banner">
+        <div className="container page-banner-inner">
+          <h1>ماركات السيارات التي نتعامل معها</h1>
+        </div>
+      </header>
       <ul className="clients-grid">
         {logos.map((logo) => (
           <li key={logo.src}>

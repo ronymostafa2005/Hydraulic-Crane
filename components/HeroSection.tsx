@@ -1,18 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { ClockIcon, WhatsappIcon } from "@/components/icons";
+import { WhatsappIcon } from "@/components/icons";
+import { ConversionLink } from "@/components/ConversionLink";
 import { telHref, waHref } from "@/lib/site";
 import "@/app/homepage-modern.css";
 
 export function HeroSection() {
   return (
-    <section className="hero-sarokh" aria-label="ونش إنقاذ 24 ساعة" dir="rtl">
+    <section className="hero-sarokh" aria-label="ونش إنقاذ سيارات" dir="rtl">
       {/* Background Hero Image */}
       <Image
         className="hero-sarokh-bg"
         src="/images/wonsh-hero.jpg"
-        alt="ونش الصاروخ لإنقاذ وسحب السيارات على مدار 24 ساعة"
+        alt="ونش الصاروخ لإنقاذ وسحب السيارات"
         fill
         priority
         quality={92}
@@ -44,21 +45,22 @@ export function HeroSection() {
           {/* Heading */}
           <h1 className="hero-sarokh-title">
             <span className="title-white">ونش إنقاذ </span>
-            <span className="title-blue">24 ساعة</span>
+            <span className="title-blue">في الشرقية والقليوبية</span>
           </h1>
 
           {/* Subtitle */}
           <p className="hero-sarokh-subtitle">
-            خدمة سريعة وآمنة لسيارتك في أي وقت
+            تنسيق خدمة سحب ونقل السيارات حسب موقعك وتوفر الونش
           </p>
 
           {/* CTA Buttons Row */}
           <div className="hero-sarokh-actions">
             {/* Primary Orange Button: اطلب الونش الآن with circle arrow */}
-            <a
+            <ConversionLink
               href={telHref}
               className="hero-btn-order"
               aria-label="اطلب الونش الآن"
+              event="phone_click"
             >
               <span className="btn-order-text">اطلب الونش الآن</span>
               <span className="btn-order-icon" aria-hidden="true">
@@ -76,26 +78,26 @@ export function HeroSection() {
                   <path d="M12 5l7 7-7 7" />
                 </svg>
               </span>
-            </a>
+            </ConversionLink>
 
             {/* Secondary Blue Pill Button: تواصل معنا عبر واتساب with green WhatsApp icon */}
-            <a
+            <ConversionLink
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-btn-whatsapp"
               aria-label="تواصل معنا عبر واتساب"
+              event="whatsapp_click"
             >
               <span className="wa-icon-wrap" aria-hidden="true">
                 <WhatsappIcon />
               </span>
               <span className="btn-wa-text">تواصل معنا عبر واتساب</span>
-            </a>
+            </ConversionLink>
           </div>
 
           {/* Feature Badges Row */}
           <div className="hero-sarokh-badges">
-            {/* Badge 1: وصول سريع */}
             <div className="hero-feature-badge">
               <span className="badge-icon-lightning" aria-hidden="true">
                 <svg
@@ -107,15 +109,11 @@ export function HeroSection() {
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                 </svg>
               </span>
-              <span className="badge-text">وصول سريع</span>
+              <span className="badge-text">نقل آمن</span>
             </div>
 
-            {/* Badge 2: متاحين 24/7 */}
             <div className="hero-feature-badge">
-              <span className="badge-icon-clock" aria-hidden="true">
-                <ClockIcon />
-              </span>
-              <span className="badge-text">متاحين 24/7</span>
+              <span className="badge-text">تغطية معلنة</span>
             </div>
           </div>
         </div>

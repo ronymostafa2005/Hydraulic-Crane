@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { PhoneIcon, TruckIcon, WhatsappIcon } from "@/components/icons";
+import { ConversionLink } from "@/components/ConversionLink";
+import { pageMetadata } from "@/lib/seo";
 import { phoneDisplay, phoneDisplay2, siteName, telHref, telHref2, waHref, waHref2 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "اتصل بنا",
-  description: `اتصل أو راسل ${siteName} على ${phoneDisplay}. خدمة 24 ساعة في الشرقيه والقليوبية وطريق الاسماعيليه الصحراوي.`,
-};
+  description: `اتصل أو راسل ${siteName} على ${phoneDisplay} لتأكيد التوفر وتنسيق خدمة الإنقاذ في الشرقية والقليوبية وطريق الإسماعيلية الصحراوي.`,
+  pathname: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <div className="contact-page">
       <section className="contact-features">
         <article>
-          <h1>كلمنا الأن نصلك فى الحال</h1>
+          <h1>اتصل بنا لتنسيق خدمة الإنقاذ</h1>
           <div className="contact-feature-body">
             <p>
-              الموبايل : <a href={telHref}>{phoneDisplay}</a> / <a href={telHref2}>{phoneDisplay2}</a>
+              الموبايل : <ConversionLink href={telHref} event="phone_click">{phoneDisplay}</ConversionLink> / <ConversionLink href={telHref2} event="phone_click">{phoneDisplay2}</ConversionLink>
             </p>
             <PhoneIcon width={68} height={68} />
           </div>
@@ -25,13 +28,13 @@ export default function ContactPage() {
           <h2>واتساب</h2>
           <div className="contact-feature-body">
             <p>
-              <a href={waHref} target="_blank" rel="noopener noreferrer">
+              <ConversionLink href={waHref} target="_blank" rel="noopener noreferrer" event="whatsapp_click">
                 {phoneDisplay}
-              </a>
+              </ConversionLink>
               {" / "}
-              <a href={waHref2} target="_blank" rel="noopener noreferrer">
+              <ConversionLink href={waHref2} target="_blank" rel="noopener noreferrer" event="whatsapp_click">
                 {phoneDisplay2}
-              </a>
+              </ConversionLink>
             </p>
             <WhatsappIcon width={68} height={68} />
           </div>
@@ -39,7 +42,7 @@ export default function ContactPage() {
         <article>
           <h2>مواعيد العمل</h2>
           <div className="contact-feature-body">
-            <p>فريق عمل مخصص لتلقى جميع الأستفسارات طول ايام الاسبوع لمدة 24 ساعة</p>
+            <p>اتصل أو راسلنا لتأكيد التوفر وتنسيق تفاصيل الخدمة</p>
             <TruckIcon width={68} height={68} />
           </div>
         </article>

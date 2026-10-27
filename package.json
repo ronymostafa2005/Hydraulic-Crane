@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "seo:validate": "npx --yes tsx scripts/seo-validate.ts"
   },
   "dependencies": {
     "next": "latest",

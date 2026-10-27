@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [{ source: "/privacy-policy", destination: "/privacy", permanent: true }];
+  },
+  async rewrites() {
+    return [{ source: "/favicon.ico", destination: "/images/logo.png" }];
+  },
 };
 
 export default nextConfig;

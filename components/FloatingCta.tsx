@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ConversionLink } from "@/components/ConversionLink";
 import { PhoneIcon, WhatsappIcon } from "@/components/icons";
 import { telHref, waHref } from "@/lib/site";
 
@@ -17,18 +18,18 @@ export function FloatingCta() {
   return (
     <>
       <div className="float-cta">
-        <a className="float-row" href={waHref} target="_blank" rel="noopener noreferrer" aria-label="واتساب">
+        <ConversionLink className="float-row" href={waHref} target="_blank" rel="noopener noreferrer" aria-label="واتساب" event="whatsapp_click">
           <span className="float-btn wa" aria-hidden="true">
             <WhatsappIcon />
           </span>
           <span className="float-label">واتساب</span>
-        </a>
-        <a className="float-row" href={telHref} aria-label="اتصل الآن">
+        </ConversionLink>
+        <ConversionLink className="float-row" href={telHref} aria-label="اتصل الآن" event="phone_click">
           <span className="float-btn phone" aria-hidden="true">
             <PhoneIcon />
           </span>
           <span className="float-label">اتصل الآن</span>
-        </a>
+        </ConversionLink>
       </div>
       {showTop ? (
         <a className="scroll-top" href="#top" aria-label="العودة للأعلى">

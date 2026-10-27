@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/ConversionLink";
 import {
   CheckIcon,
-  ClockIcon,
   FacebookIcon,
   LinkedinIcon,
   PhoneIcon,
@@ -10,7 +10,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "@/components/icons";
-import { days, highlights, phoneDisplay, phoneDisplay2, siteName, telHref, telHref2, waHref, waHref2 } from "@/lib/site";
+import { highlights, phoneDisplay, phoneDisplay2, siteName, telHref, telHref2, waHref, waHref2 } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -19,20 +19,20 @@ export function Footer() {
         <div>
           <PhoneIcon />
           <p>
-            الموبايل : <a href={telHref} dir="ltr">{phoneDisplay}</a> | <a href={telHref2} dir="ltr">{phoneDisplay2}</a>
+            الموبايل : <ConversionLink href={telHref} dir="ltr" event="phone_click">{phoneDisplay}</ConversionLink> | <ConversionLink href={telHref2} dir="ltr" event="phone_click">{phoneDisplay2}</ConversionLink>
           </p>
         </div>
         <div>
           <WhatsappIcon />
           <p>
-            <a href={waHref} target="_blank" rel="noopener noreferrer">
+            <ConversionLink href={waHref} target="_blank" rel="noopener noreferrer" event="whatsapp_click">
               واتساب : <span dir="ltr">{phoneDisplay}</span>
-            </a>
+            </ConversionLink>
           </p>
         </div>
         <div>
           <TruckIcon />
-          <p>فريق عمل مخصص لتلقى جميع الاستفسارات طول ايام الاسبوع لمدة 24 ساعة</p>
+          <p>اتصل أو راسلنا لتأكيد التوفر وتحديد تفاصيل الخدمة</p>
         </div>
       </div>
 
@@ -42,27 +42,30 @@ export function Footer() {
           <ul className="footer-list plain">
             <li>
               <span>الموبايل:</span>
-              <a href={telHref} dir="ltr">{phoneDisplay}</a>
+              <ConversionLink href={telHref} dir="ltr" event="phone_click">{phoneDisplay}</ConversionLink>
             </li>
             <li>
               <span>الموبايل 2:</span>
-              <a href={telHref2} dir="ltr">{phoneDisplay2}</a>
+              <ConversionLink href={telHref2} dir="ltr" event="phone_click">{phoneDisplay2}</ConversionLink>
             </li>
             <li>
               <span>واتساب:</span>
-              <a href={waHref} target="_blank" rel="noopener noreferrer" dir="ltr">
+              <ConversionLink href={waHref} target="_blank" rel="noopener noreferrer" dir="ltr" event="whatsapp_click">
                 {phoneDisplay}
-              </a>
+              </ConversionLink>
             </li>
             <li>
               <span>واتساب 2:</span>
-              <a href={waHref2} target="_blank" rel="noopener noreferrer" dir="ltr">
+              <ConversionLink href={waHref2} target="_blank" rel="noopener noreferrer" dir="ltr" event="whatsapp_click">
                 {phoneDisplay2}
-              </a>
+              </ConversionLink>
             </li>
             <li>
               <span>التغطية:</span>
-              <span>الشرقيه، القليوبية، طريق الاسماعيليه الصحراوي</span>
+              <span>
+                <Link href="/areas/sharqia">الشرقية</Link>، <Link href="/areas/qalyubia">القليوبية</Link>،{" "}
+                <Link href="/areas/roads/cairo-ismailia-desert-road">طريق الإسماعيلية الصحراوي</Link>
+              </span>
             </li>
           </ul>
           <div className="footer-social" aria-hidden="true">
@@ -85,21 +88,6 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h2 className="footer-title">مواعيد العمل</h2>
-          <ul className="footer-list hours">
-            {days.map((day) => (
-              <li key={day}>
-                <span>{day}:</span>
-                <span className="with-icon">
-                  <ClockIcon />
-                  24 ساعة
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <div className="footer-photo">
           <img src="/images/wonsh-new-3.jpg" alt="ونش نقل سيارة" />
         </div>
@@ -107,6 +95,9 @@ export function Footer() {
 
       <div className="copyright-bar">
         <nav className="legal-nav" aria-label="روابط مهمة">
+          <Link href="/areas">مناطق الخدمة</Link>
+          <Link href="/services">خدماتنا</Link>
+          <Link href="/guides">أدلة</Link>
           <Link href="/about">من نحن</Link>
           <Link href="/contact">تواصل معنا</Link>
           <Link href="/privacy">سياسة الخصوصية</Link>

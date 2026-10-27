@@ -1,24 +1,20 @@
-
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ActionLinks, AnnounceBar } from "@/components/Ctas";
 import { BrandCarousel } from "@/components/BrandCarousel";
-import {
-  ClockIcon,
-  TruckIcon,
-  WhatsappIcon,
-  WrenchIcon,
-  ChatUserIcon,
-} from "@/components/icons";
-import { siteName, telHref, waHref } from "@/lib/site";
+import { TruckIcon, WrenchIcon } from "@/components/icons";
+import { siteName } from "@/lib/site";
 import { HeroSection } from "@/components/HeroSection";
+import { pageMetadata } from "@/lib/seo";
 import "./homepage-modern.css";
 
-export const metadata: Metadata = {
-  title: "الرئيسية",
+export const metadata: Metadata = pageMetadata({
+  title: "ونش إنقاذ سيارات في الشرقية والقليوبية",
   description:
-    "ونش الصاروخ — خدمة سحب ونقل السيارات 24 ساعة في الشرقية والقليوبية وطريق الإسماعيلية الصحراوي. اتصل أو راسلنا فوراً.",
-};
+    "ونش الصاروخ لخدمات سحب ونقل السيارات في الشرقية والقليوبية وطريق الإسماعيلية الصحراوي. اتصل لتأكيد التوفر وتنسيق الخدمة.",
+  pathname: "/",
+});
 
 const features = [
   {
@@ -32,9 +28,9 @@ const features = [
     icon: <WrenchIcon />,
   },
   {
-    title: "متاحون 24 ساعة",
-    text: "نستقبل اتصالك طوال أيام الأسبوع، ونساعدك في ترتيب نقل سيارتك إلى المكان الذي تختاره.",
-    icon: <ClockIcon />,
+    title: "تواصل لتنسيق الخدمة",
+    text: "اتصل أو راسلنا بموقع السيارة ووجهة النقل لتأكيد التوفر وترتيب الخطوات المناسبة.",
+    icon: <TruckIcon />,
   },
 ];
 
@@ -54,8 +50,8 @@ export default function HomePage() {
 
               <p className="modern-section-subtitle">
                 عطل مفاجئ أو حادث على الطريق؟ {siteName} يوفر لك خدمة سحب
-                ونقل سيارات على مدار 24 ساعة في الشرقية والقليوبية وطريق
-                الإسماعيلية الصحراوي.
+                ونقل سيارات في الشرقية والقليوبية وطريق الإسماعيلية الصحراوي،
+                مع تأكيد التوفر عند التواصل.
               </p>
             </div>
 
@@ -87,8 +83,8 @@ export default function HomePage() {
 
             <p>
               هل تبحث عن خدمة إنقاذ سيارات سريعة وموثوقة؟ يوفر لك {siteName}
-              حلولاً لسحب ونقل السيارات على مدار 24 ساعة، مع فريق جاهز للوصول
-              إليك داخل الشرقية والقليوبية وعلى طريق الإسماعيلية الصحراوي.
+              حلولاً لسحب ونقل السيارات داخل الشرقية والقليوبية وعلى طريق
+              الإسماعيلية الصحراوي، حسب التوفر وموقع السيارة.
             </p>
 
             <p>
@@ -113,9 +109,7 @@ export default function HomePage() {
               sizes="(max-width: 900px) 100vw, 50vw"
             />
 
-            <span className="modern-image-label">
-              <ClockIcon /> جاهزون لمساعدتك 24/7
-            </span>
+            <span className="modern-image-label">تواصل لتنسيق الخدمة</span>
           </div>
         </section>
 
@@ -145,7 +139,7 @@ export default function HomePage() {
 
             <p>
               نغطي الطرق السريعة والمحاور الرئيسية، ومنها طريق الإسماعيلية
-              الصحراوي، لخدمة أصحاب السيارات على مدار اليوم وطوال أيام الأسبوع.
+              الصحراوي، مع إمكانية التواصل لتأكيد التوفر وترتيب الخدمة.
             </p>
 
             <p>
@@ -160,6 +154,26 @@ export default function HomePage() {
             </p>
 
             <ActionLinks />
+          </div>
+        </section>
+
+        <section className="section" dir="rtl">
+          <div className="container">
+            <h2 className="section-title">مناطق وخدمات يمكنك فتحها مباشرة</h2>
+            <p>
+              صفحات مستقلة للشرقية والقليوبية وطريق الإسماعيلية الصحراوي، مع روابط للمدن الرئيسية وخدمات الإنقاذ والسحب والسطحة.
+            </p>
+            <ul className="seo-links">
+              <li><Link href="/areas/sharqia">ونش إنقاذ سيارات الشرقية</Link></li>
+              <li><Link href="/areas/qalyubia">ونش إنقاذ سيارات القليوبية</Link></li>
+              <li><Link href="/areas/roads/cairo-ismailia-desert-road">ونش طريق الإسماعيلية الصحراوي</Link></li>
+              <li><Link href="/areas/sharqia/zagazig">ونش الزقازيق</Link></li>
+              <li><Link href="/areas/sharqia/10th-of-ramadan">ونش العاشر من رمضان</Link></li>
+              <li><Link href="/areas/qalyubia/obour">ونش العبور</Link></li>
+              <li><Link href="/services/car-rescue">ونش إنقاذ سيارات</Link></li>
+              <li><Link href="/services/hydraulic-flatbed">سطحة هيدروليك</Link></li>
+              <li><Link href="/guides">أدلة طلب الونش</Link></li>
+            </ul>
           </div>
         </section>
 

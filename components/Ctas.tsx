@@ -1,3 +1,4 @@
+import { ConversionLink } from "@/components/ConversionLink";
 import { telHref, waHref } from "@/lib/site";
 
 export function AnnounceBar({ text }: { text: string }) {
@@ -6,12 +7,12 @@ export function AnnounceBar({ text }: { text: string }) {
       <div className="container announce-inner">
         <p className="announce-text">{text}</p>
         <div className="announce-actions">
-          <a className="more" href={telHref}>
-            <span>كلمنا نصلك فى الحال</span>
-          </a>
-          <a className="more more-wa" href={waHref} target="_blank" rel="noopener noreferrer">
+          <ConversionLink className="more" href={telHref} event="phone_click">
+            <span>اتصل لتنسيق الخدمة</span>
+          </ConversionLink>
+          <ConversionLink className="more more-wa" href={waHref} target="_blank" rel="noopener noreferrer" event="whatsapp_click">
             <span>واتساب</span>
-          </a>
+          </ConversionLink>
         </div>
       </div>
     </section>
@@ -21,7 +22,7 @@ export function AnnounceBar({ text }: { text: string }) {
 export function ActionLinks() {
   return (
     <div className="action-links">
-      <a className="action" href={telHref}>
+      <ConversionLink className="action" href={telHref} event="phone_click">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
           <path
             fill="none"
@@ -31,9 +32,9 @@ export function ActionLinks() {
             d="M7 3.8h2.2l1.2 3-1.6 1a12.5 12.5 0 0 0 6.4 6.4l1-1.6 3 1.2V18a1.8 1.8 0 0 1-2 1.8A15.2 15.2 0 0 1 4.2 5.8 1.8 1.8 0 0 1 7 3.8Z"
           />
         </svg>
-        <span>كلمنا الأن نصلك فى الحال</span>
-      </a>
-      <a className="action" href={waHref} target="_blank" rel="noopener noreferrer">
+        <span>اتصل لتنسيق الخدمة</span>
+      </ConversionLink>
+      <ConversionLink className="action" href={waHref} target="_blank" rel="noopener noreferrer" event="whatsapp_click">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
           <path
             fill="currentColor"
@@ -41,7 +42,7 @@ export function ActionLinks() {
           />
         </svg>
         <span>راسلنا على واتساب</span>
-      </a>
+      </ConversionLink>
     </div>
   );
 }

@@ -1251,3 +1251,58 @@ p { margin: 0; }
   }
 }
 
+.seo-page {
+  color: var(--ink);
+}
+.seo-layout {
+  display: grid;
+  gap: 28px;
+  padding: 36px 0 72px;
+}
+.seo-copy h2,
+.inner-body h2 {
+  margin: 28px 0 10px;
+  color: var(--blue-dark);
+  font-size: 22px;
+}
+.seo-copy h3 {
+  margin: 18px 0 6px;
+  color: var(--ink);
+  font-size: 17px;
+}
+.seo-copy p,
+.seo-notes li {
+  margin-top: 10px;
+  line-height: 1.95;
+  color: #444;
+}
+.seo-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 8px;
+}
+.seo-links li {
+  list-style: none;
+}
+.seo-links a {
+  display: inline-block;
+  background: var(--blue-soft);
+  color: var(--blue);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+.seo-links a:hover { background: var(--blue-light); }
+.seo-notes { padding-right: 18px; list-style: disc; }
+.seo-village-list { font-size: 15px; color: #555; }
+.seo-source { margin-top: 28px; font-size: 13px; color: #777; }
+.seo-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+@media (min-width: 900px) {
+  .seo-layout { grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr); align-items: start; }
+}
+
